@@ -19,6 +19,9 @@ Figure
                     |__all_matTrack_data.csv
                     |__luminance.csv
 ```
+To start, this repository can be either manually downloaded, or using git:
+
+```git clone https://github.com/ODonnellLab/INPBootCamp.git```
 
 Example scripts to load in and do some basic plotting are available in ./scripts
 
