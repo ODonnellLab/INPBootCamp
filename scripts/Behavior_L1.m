@@ -1,3 +1,8 @@
+%% Part 1 - Relative Residence
+% In this exercise, we try to visualize the relative residence, a
+% metric used to quantify how often worms are in a certain region
+% of the arena.
+
 % Read in data
 % Change this filePath to load different experiments
 filePath = '../datasets/1D/WT/HEX/20200623_N2_HEX_10000/all_matTrack_data.csv';
