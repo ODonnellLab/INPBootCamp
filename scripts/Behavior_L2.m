@@ -102,10 +102,17 @@ luminance; % Feel free to open this script to see what it does
 % num_outside = ?;
 % CI = ?;
 
-% What values of CI are phyiscally special? (Hint: think about the
-% extremes and think about what CI would be for a control experiment)
+% When trying to quantify behavior (and data in general), it is often
+% useful to consider what you expect a metric to be in extreme cases.
+% For instance, what do you expect CI to be in an experiments where
+% worms are always in the odor stripe? What do you expect it to be in
+% an experiment with worms never in the stripe? Finally, what do you
+% expect it to be in a control experiment with a stripe with no odor?
+% (Think about this last one carefully, it's a bit tricky and nuanced)
 
-% How do you expect CI to differ between experiments with an attractive
-% odor stripe as compared to experiments with a repulsive odor stripe?
+% Now that you've had the chance to think about the physical meaning
+% corresponding to your evaluation metric, we can try your intuition on
+% real data.
 % If you have time, try running your completed script on different data
-% sets to test your hypothesis.
+% sets to see how CI changes for attractive vs repulsive odors. Does it
+% match your expectations based on your logic above regarding extremes?
