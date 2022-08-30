@@ -45,7 +45,6 @@ title(['Unnormalized Residence (', ASSAY.("stimulus"){1},')']);
 % function in Matlab)
 % xlabel(?);
 
-
 % Now we normalize the histogram to make plot of relative residence:
 % Each tracked frame (non NaN) contributes to the distribution.
 % We extract parameters from histogram:
@@ -62,6 +61,7 @@ figure
 
 % Again we add an appropriate title here automatically based on the file
 title(['Relative Residence (', ASSAY.("stimulus"){1},')']);
+
 % Add a label to the x axis and call it 'Position'
 % xlabel(?);
 
