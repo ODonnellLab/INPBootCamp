@@ -95,7 +95,6 @@ luminance; % Feel free to open this script to see what it does
 % including <, >, and &)
 % num_in_odorant = ?;
 
-
 % Compute the chemotaxis index (CI = (num in odorant - num outside)/total)
 % num_outside = ?;
 CI = (num_in_odorant - num_outside)/(num_in_odorant + num_outside);
