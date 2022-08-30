@@ -22,7 +22,7 @@ ASSAY = readtable(filePath);
 % that we want vector x to be equal to the column labeled "x" in the
 % ASSAY table.
 x = ASSAY.("x");
-% y = ?
+y = ASSAY.("y");
 
 % Sometimes worms go untracked (resulting in NaN), so let's eliminate
 % anywhere these values happen. The details here aren't that important,
@@ -35,7 +35,7 @@ x = x(~isnan(x),1); % removes all NaNs from x
 % Make a histogram h of the y values with 50 bins (hint: check 'histogram'
 % function in Matlab)
 figure
-% h = histogram(?);
+h = histogram(y,50);
 
 % Adds an appropriate title to the histogram based on the stimulus of the
 % loaded experiment. If you're interested in learning exactly how this is
@@ -44,7 +44,7 @@ title(['Unnormalized Residence (', ASSAY.("stimulus"){1},')']);
 
 % Add a label to the x axis and call it 'Position' (hint: check 'xlabel'
 % function in Matlab)
-% xlabel(?);
+xlabel('Position');
 
 % Now we normalize the histogram to make plot of relative residence:
 % Each tracked frame (non NaN) contributes to the distribution.
@@ -52,19 +52,19 @@ title(['Unnormalized Residence (', ASSAY.("stimulus"){1},')']);
 % Counts are the number of occurrences within a given bin
 counts = h.Values;
 % Find the mean number of counts and use it to normalize for rel_counts
-% mean_counts = ?;
-% rel_counts = ?;
+mean_counts = mean(counts);
+rel_counts = counts/mean_counts;
 
 figure
 % Now use barplot to plot these relative values (hint: check 'bar' function
 % in Matlab)
-% bar(?);
+bar(rel_counts);
 
 % Again we add an appropriate title here automatically based on the file
 title(['Relative Residence (', ASSAY.("stimulus"){1},')']);
 
 % Add a label to the x axis and call it 'Position'
-% xlabel(?);
+xlabel('Position');
 
 %% Part 1b - Look at individual worm trajectories
 
@@ -100,7 +100,8 @@ luminance; % Feel free to open this script to see what it does
 % determine the number of occurrences (rows) during which worms are within
 % the stripe boundary (hint: use a combination of logical operators
 % including <, >, and &)
-% num_in_odorant = ?;
+in_band = (y < y_upper & y > y_lower); % hint: y between y_upper & y_lower
+num_in_odorant = sum(in_band);
 
 % Compute the chemotaxis index (CI = (num in odorant - num outside)/total)
 % num_outside = ?;
@@ -134,57 +135,6 @@ luminance; % Feel free to open this script to see what it does
 % What other factors may affect CI? Are there any factors that you think
 % should be controlled against to avoid seeing false patterns?
 
-
-%assign arrays of positions using column indexing:
-x = ASSAY.("x");
-y = ASSAY.("y");
-time = ASSAY.("time");
-state = ASSAY.("state");
-direction = categorical(ASSAY.("direction"));
-direction = removecats(direction,"NA");
-
-%Some worms are untracked (NaN), eliminate these values
-y = y(~isnan(y),1);
-x = x(~isnan(x),1);
-time = time(~isnan(x),1);
-direction = categorical(direction(~isnan(x),1));
-state = state(~isnan(x),1);
-
-% Number of tracked worm frames is equivalent to the (non-NaN) rows:
-num_tracked = length(x);
-
-%Simple histogram of distributions:
-% x is position along (orthogonal to) the stimulus axis:
-figure
-h = histogram(y,50);
-title(['Unnormalized Residence (', ASSAY.("stimulus"){1},')']);
-xlabel('Position');
-
-% Normalize the histogram to make plot of relative residence:
-% Each tracked frame (non NaN) contributes to the distribution.
-% extract parameters from histogram:
-counts = h.Values;
-sum_counts = sum(counts);
-mean_counts = mean(counts);
-rel_counts = counts/mean_counts;
-
-
-% Double check the output from h matches your num_tracked:
-assert(sum_counts == num_tracked, ...
-    "there is an error in your histogram counts, check that you've filtered 'NaN' and 'NA'")
-
-% Now use barplot to plot these relative values:
-figure
-bar(rel_counts);
-title(['Relative Residence (', ASSAY.("stimulus"){1},')']);
-xlabel('Position');
-
-
-%% Part 2 - Chemotaxis Index
-
-% To find the lower (y_lower) and upper (y_upper) bounds of the odorant
-% stripe, use this script in your path variable:
-luminance
 
 % Determine the number of occurrences (rows) during which worms are within
 % the stripe boundary (hint: use a combination of logical operations
