@@ -23,6 +23,8 @@ ASSAY = readtable(filePath);
 % ASSAY table.
 x = ASSAY.("x");
 y = ASSAY.("y");
+time = ASSAY.("time");
+state = ASSAY.("state");
 
 % Sometimes worms go untracked (resulting in NaN), so let's eliminate
 % anywhere these values happen. The details here aren't that important,
@@ -31,6 +33,8 @@ y = ASSAY.("y");
 % encourage you to look up "vectorization in Matlab"
 y = y(~isnan(y),1); % removes all NaNs from y
 x = x(~isnan(x),1); % removes all NaNs from x
+time = time(~isnan(x),1); % removes all NaNs from time
+state = state(~isnan(x),1); % removes all NaNs from state
 
 % Make a histogram h of the y values with 50 bins (hint: check 'histogram'
 % function in Matlab)
