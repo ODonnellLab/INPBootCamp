@@ -87,7 +87,10 @@ worm_tracks;
 % The location of the stripe can be found for a given experiment from the
 % "luminance.csv" file that corresponds to the data, but this is a bit of
 % an involved process, so we are providing a script called "luminance.m" 
-% that you can run to do it for you.
+% that you can run to do it for you. Before running, it needs to know
+% the min and max values of y for the currently loaded data.
+minY = nanmin(y);
+maxY = nanmax(y);
 luminance; % Feel free to open this script to see what it does
 
 % This script returns the variables y_lower and y_upper which are the 
@@ -135,8 +138,6 @@ luminance; % Feel free to open this script to see what it does
 %assign arrays of positions using column indexing:
 x = ASSAY.("x");
 y = ASSAY.("y");
-minY = nanmin(y);
-maxY = nanmax(y);
 time = ASSAY.("time");
 state = ASSAY.("state");
 direction = categorical(ASSAY.("direction"));
