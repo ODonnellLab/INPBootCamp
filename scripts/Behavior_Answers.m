@@ -34,7 +34,7 @@ state = ASSAY.("state");
 y = y(~isnan(y),1); % removes all NaNs from y
 x = x(~isnan(x),1); % removes all NaNs from x
 time = time(~isnan(x),1); % removes all NaNs from time
-state = state(~isnan(x),1); % removes all NaNs from state
+states = state(~isnan(x),1); % removes all NaNs from state
 
 % Make a histogram h of the y values with 50 bins (hint: check 'histogram'
 % function in Matlab)
@@ -174,12 +174,12 @@ title('CI(t)');
 
 % Grab the number of allowed states (can do this by category via state_name
 % if desired)
-numStates = max(state);
+numStates = max(states);
 % Initialize vector that holds how many occurrences of each state takes
 % place in a given experiment (this doesn't distinguish between worms)
 stateCount = zeros(numStates,1);
 
 % Loop through each possible state and count the number of occurrences
 for stateCounter = 1:numStates
-    stateCount(stateCounter) = sum(state == stateCounter);
+    stateCount(stateCounter) = sum(states == stateCounter);
 end
