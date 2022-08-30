@@ -117,19 +117,15 @@ luminance; % Feel free to open this script to see what it does
 % sets to see how CI changes for attractive vs repulsive odors. Does it
 % match your expectations based on your logic above regarding extremes?
 
-%% Part 3a - Time Dependence of Chemotaxis Index
+%% Part 3 - Data Exploration
+% If you've made it this far and still have time, the following sections
+% are suggestions for different analyses you can consider for the data.
+% Feel free to instead ask your own questions and try to answer them
+% with the data we've provided you.
 
-% Find and plot CI(t) by computing CI for each frame
-
-
-
-%% Part 3b - Behavioral States Among Mutants
-
-% Determine the distribution of states for each genotype of worm and see if
-% certain states are more prevalent among differing mutants
-
-%% Part 3c - Other Analysis
-
-% What other potentially interesting things do you think you might find in
-% the data? Can you form any hypotheses relating any of the already present
-% parameters? Feel free to see what fun things you might find in the data.
+% Here are some suggested questions to think about and try to implement:
+% Does CI vary over the course of the experiment? Is CI(t) meaningful?
+% Do different mutants exhibit different distributions of states during
+% their locomotion?
+% What other factors may affect CI? Are there any factors that you think
+% should be controlled against to avoid seeing false patterns?
