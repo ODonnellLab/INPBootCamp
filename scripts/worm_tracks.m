@@ -1,7 +1,5 @@
 % This script will plot individual tracks of worms over the course of an
 % assay
-clear all 
-close all
 % Read in data
 ASSAY = readtable('../datasets/1D/WT/HEX/202200630_N2_L_HEX_10000/all_matTrack_data.csv');
 
