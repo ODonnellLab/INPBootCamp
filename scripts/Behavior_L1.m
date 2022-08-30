@@ -17,7 +17,9 @@ ASSAY = readtable(filePath);
 % interest in a table rather than working with the whole thing, so
 % let's load in the variables we want into vectors below.
 
-%assign arrays of positions using column indexing:
+% Assign arrays of positions using column indexing. This tells Matlab
+% that we want vector x to be equal to the column labeled "x" in the
+% ASSAY table.
 x = ASSAY.("x");
 % y = ?
 
