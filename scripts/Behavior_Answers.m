@@ -100,12 +100,12 @@ luminance; % Feel free to open this script to see what it does
 % determine the number of occurrences (rows) during which worms are within
 % the stripe boundary (hint: use a combination of logical operators
 % including <, >, and &)
-in_band = (y < y_upper & y > y_lower); % hint: y between y_upper & y_lower
-num_in_odorant = sum(in_band);
+in_stripe = (y < y_upper & y > y_lower); % hint: y between y_upper & y_lower
+num_in_odorant = sum(in_stripe); % hint: how many in stripe?
 
 % Compute the chemotaxis index (CI = (num in odorant - num outside)/total)
-% num_outside = ?;
-% CI = ?;
+num_outside = length(y) - num_in_odorant;
+CI = (num_in_odorant - num_outside)/(num_in_odorant + num_outside);
 
 % When trying to quantify behavior (and data in general), it is often
 % useful to consider what you expect a metric to be in extreme cases.
@@ -114,6 +114,15 @@ num_in_odorant = sum(in_band);
 % an experiment with worms never in the stripe? Finally, what do you
 % expect it to be in a control experiment with a stripe with no odor?
 % (Think about this last one carefully, it's a bit tricky and nuanced)
+
+% Answers: 
+% Always in stripe = +1
+% Never in stripe = -1
+% Odorless stripe = 2*(fractional size of stripe) - 1
+% If stripe is odorless, should be random chance that worms are in the
+% stripe or not, so CI should solely depend on how big the stripe is
+% relative to the rest of the arena. Note that the above answer is
+% equal to (fractional size of stripe) - (fractional size of not stripe)
 
 % Now that you've had the chance to think about the physical meaning
 % corresponding to your evaluation metric, we can try your intuition on
@@ -134,17 +143,6 @@ num_in_odorant = sum(in_band);
 % their locomotion?
 % What other factors may affect CI? Are there any factors that you think
 % should be controlled against to avoid seeing false patterns?
-
-
-% Determine the number of occurrences (rows) during which worms are within
-% the stripe boundary (hint: use a combination of logical operations
-% including <, >, and &)
-in_band = (y < y_upper & y > y_lower);
-num_in_odorant = sum(in_band);
-
-% Compute the chemotaxis index (CI = (num in odorant - num outside)/total)
-num_outside = length(y) - num_in_odorant;
-CI = (num_in_odorant - num_outside)/(num_in_odorant + num_outside);
 
 %% Part 3a - Time Dependence of Chemotaxis Index
 
