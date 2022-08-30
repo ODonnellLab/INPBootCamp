@@ -1,4 +1,7 @@
 %% Part 1 - Relative Residence
+% In this exercise, we try to visualize the relative residence, a
+% metric used to quantify how often worms are in a certain region
+% of the arena.
 
 % Read in data
 % Change this filePath to load different experiments
