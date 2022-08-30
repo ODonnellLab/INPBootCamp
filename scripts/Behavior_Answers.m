@@ -158,7 +158,7 @@ CI_of_t = zeros(numFrames,1);
 % Loop through each frame and count the number of worms in the band for
 % each frame, then use that to compute CI
 for frame = 1:numFrames
-    num_in_odorant_t = sum(in_band(time == frame));
+    num_in_odorant_t = sum(in_stripe(time == frame));
     num_outside_t = sum(time == frame) - num_in_odorant_t;
     CI_of_t(frame) = (num_in_odorant_t - num_outside_t)/(num_in_odorant_t + num_outside_t);
 end
