@@ -99,7 +99,8 @@ luminance; % Feel free to open this script to see what it does
 % determine the number of occurrences (rows) during which worms are within
 % the stripe boundary (hint: use a combination of logical operators
 % including <, >, and &)
-% num_in_odorant = ?;
+% in_stripe = ?; % hint: y between y_upper & y_lower
+% num_in_odorant = ?; % hint: how many in stripe?
 
 % Compute the chemotaxis index (CI = (num in odorant - num outside)/total)
 % num_outside = ?;
