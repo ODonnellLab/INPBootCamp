@@ -8,10 +8,10 @@ worms = unique(ASSAY.("worm"));
 hold on
 for i = 1:length(worms)
     ...
-    x = ASSAY(ASSAY.("worm") == i,"x");
-    y = ASSAY(ASSAY.("worm") == i,"y");
+    x_plot = ASSAY(ASSAY.("worm") == i,"x");
+    y_plot = ASSAY(ASSAY.("worm") == i,"y");
     % convert to array to plot:
-    x = table2array(x);
-    y = table2array(y);
-    plot(x,y)
+    x_plot = table2array(x_plot);
+    y_plot = table2array(y_plot);
+    plot(x_plot,y_plot)
 end
