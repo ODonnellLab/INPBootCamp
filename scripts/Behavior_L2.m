@@ -34,12 +34,13 @@ x = x(~isnan(x),1); % removes all NaNs from x
 % Make a histogram h of the y values with 50 bins (hint: check 'histogram'
 % function in Matlab)
 figure
-% h = ?;
+% h = histogram(?);
 
 % Adds an appropriate title to the histogram based on the stimulus of the
 % loaded experiment. If you're interested in learning exactly how this is
 % being done, feel free to read the documentation for the horzcat function
 title(['Unnormalized Residence (', ASSAY.("stimulus"){1},')']);
+
 % Add a label to the x axis and call it 'Position' (hint: check 'xlabel'
 % function in Matlab)
 % xlabel(?);
