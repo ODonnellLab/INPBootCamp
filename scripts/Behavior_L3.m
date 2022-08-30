@@ -1,4 +1,7 @@
 %% Part 1 - Relative Residence
+% In this exercise, we try to visualize the relative residence, a
+% metric used to quantify how often worms are in a certain region
+% of the arena.
 
 % Read in data
 % Change this filePath to load different experiments
@@ -99,6 +102,11 @@ CI = (num_in_odorant - num_outside)/(num_in_odorant + num_outside);
 
 % What values of CI are phyiscally special? (Hint: think about the
 % extremes and think about what CI would be for a control experiment)
+
+% How do you expect CI to differ between experiments with an attractive
+% odor stripe as compared to experiments with a repulsive odor stripe?
+% If you have time, try running your completed script on different data
+% sets to test your hypothesis.
 
 %% Part 3a - Time Dependence of Chemotaxis Index
 
