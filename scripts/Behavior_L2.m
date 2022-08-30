@@ -28,7 +28,7 @@ x = ASSAY.("x");
 % but if you are interested in learning more about this efficient and
 % concise method of choosing only desired entries in vectors, we
 % encourage you to look up "vectorization in Matlab"
-y = y(~isnan(y),1); % removes all NaNs from x
+y = y(~isnan(y),1); % removes all NaNs from y
 x = x(~isnan(x),1); % removes all NaNs from x
 
 % Make a histogram h of the y values with 50 bins (hint: check 'histogram'
