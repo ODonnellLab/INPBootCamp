@@ -118,3 +118,9 @@ CI = (num_in_odorant - num_outside)/(num_in_odorant + num_outside);
 
 % Determine the distribution of states for each genotype of worm and see if
 % certain states are more prevalent among differing mutants
+
+%% Part 3c - Other Analysis
+
+% What other potentially interesting things do you think you might find in
+% the data? Can you form any hypotheses relating any of the already present
+% parameters? Feel free to see what fun things you might find in the data.
