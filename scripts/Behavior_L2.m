@@ -67,17 +67,36 @@ title(['Relative Residence (', ASSAY.("stimulus"){1},')']);
 
 worm_tracks;
 
-%% Part 2 - Chemotaxis Index
+%% Part 2 - Chemotaxis Index: 
+% The goal is to quantify the relative time worms spend in the odor stripe
+% vs out of the stripe. To do this, we compute a Chemotaxis Index (CI).
+% This can be done for several different experiments to compare different
+% conditions if desired, or you can choose to just run it for one
+% experiment for now.
 
-% Establish the y-boundaries of the odorant stripe
-y_lower = 3*min(y)/4; % Get this from Mike before sending to students
-y_upper = min(y)/4; % Get this from Mike before sending to students
+% Before we do anything, we need to know the y values of the boundaries of
+% the odorant stripe. The location and size of this stripe isn't exactly
+% the same between experiments, but it is static within a given experiment.
+% The location of the stripe can be found for a given experiment from the
+% "luminance.csv" file that corresponds to the data, but this is a bit of
+% an involved process, so we are providing a script called "luminance.m" 
+% that you can run to do it for you.
+luminance; % Feel free to open this script to see what it does
 
-% Determine the number of occurrences (rows) during which worms are within
-% the stripe boundary (hint: use a combination of logical operations
+% This script returns the variables y_lower and y_upper which are the 
+% boundaries of the odor stripe. You should use these for the next steps.
+
+% Now we want to see how often worms are in this stripe. To do this, we
+% determine the number of occurrences (rows) during which worms are within
+% the stripe boundary or not (hint: use a combination of logical operators
 % including <, >, and &)
+% num_in_odorant = ?;
+% num_outside = ?;
 
 
 % Compute the chemotaxis index (CI = (num in odorant - num outside)/total)
 
 CI = (num_in_odorant - num_outside)/(num_in_odorant + num_outside);
+
+% What values of CI are phyiscally special? (Hint: think about the
+% extremes and think about what CI would be for a control experiment)
