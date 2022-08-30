@@ -61,6 +61,7 @@ figure
 
 % Again we add an appropriate title here automatically based on the file
 title(['Relative Residence (', ASSAY.("stimulus"){1},')']);
+
 % Add a label to the x axis and call it 'Position'
 % xlabel(?);
 
