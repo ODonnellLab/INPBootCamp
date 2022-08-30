@@ -42,7 +42,6 @@ title(['Unnormalized Residence (', ASSAY.("stimulus"){1},')']);
 % function in matlab)
 % xlabel(?);
 
-
 % Now we normalize the histogram to make plot of relative residence:
 % Each tracked frame (non NaN) contributes to the distribution.
 % We extract parameters from histogram:
@@ -94,7 +93,6 @@ luminance; % Feel free to open this script to see what it does
 % the stripe boundary (hint: use a combination of logical operators
 % including <, >, and &)
 % num_in_odorant = ?;
-
 
 % Compute the chemotaxis index (CI = (num in odorant - num outside)/total)
 % num_outside = ?;
