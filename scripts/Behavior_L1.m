@@ -32,7 +32,7 @@ y = y(~isnan(y),1); % removes all NaNs from y
 x = x(~isnan(x),1); % removes all NaNs from x
 
 % Make a histogram h of the y values with 50 bins (hint: check 'histogram'
-% function in matlab)
+% function in Matlab)
 figure
 % h = ?;
 
@@ -41,7 +41,7 @@ figure
 % being done, feel free to read the documentation for the horzcat function
 title(['Unnormalized Residence (', ASSAY.("stimulus"){1},')']);
 % Add a label to the x axis and call it 'Position' (hint: check 'xlabel'
-% function in matlab)
+% function in Matlab)
 % xlabel(?);
 
 
@@ -56,7 +56,7 @@ counts = h.Values;
 
 figure
 % Now use barplot to plot these relative values (hint: check 'bar' function
-% in matlab)
+% in Matlab)
 % bar(?);
 
 % Again we add an appropriate title here automatically based on the file
