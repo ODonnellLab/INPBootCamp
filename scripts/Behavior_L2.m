@@ -100,7 +100,7 @@ luminance; % Feel free to open this script to see what it does
 
 % Compute the chemotaxis index (CI = (num in odorant - num outside)/total)
 % num_outside = ?;
-CI = (num_in_odorant - num_outside)/(num_in_odorant + num_outside);
+% CI = ?;
 
 % What values of CI are phyiscally special? (Hint: think about the
 % extremes and think about what CI would be for a control experiment)
