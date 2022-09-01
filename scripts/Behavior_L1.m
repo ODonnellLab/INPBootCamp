@@ -52,12 +52,14 @@ title(['Unnormalized Residence (', ASSAY.("stimulus"){1},')']);
 % We extract parameters from histogram:
 % Counts are the number of occurrences within a given bin
 counts = h.Values;
-% Find the mean number of counts and use it to normalize for rel_counts
+% Find the mean number of counts. Use this to compute rel_counts
+% (the ratio of counts to mean counts) to tell us whether
+% a certain bin has a higher or lower than average residence
 % mean_counts = ?;
 % rel_counts = ?;
 
 figure
-% Now use barplot to plot these relative values (hint: check 'bar' function
+% Now use barplot to plot rel_counts (hint: check 'bar' function
 % in Matlab)
 % bar(?);
 
