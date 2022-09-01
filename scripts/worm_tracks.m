@@ -1,8 +1,11 @@
 % This script will plot individual tracks of worms over the course of an
 % assay
+
 % To choose a different file from the one currently loaded, uncomment
 % the next 3 lines to have Matlab give you a GUI to select a file from
-% file
+% [fileName, filePath] = uigetfile('*.csv');
+% fileWithPath = fullfile(fileName, filePath);
+% ASSAY = readtable(fileWithPath);
 
 % Plot tracks of each unique worm in a different color:
 worms = unique(ASSAY.("worm"));
