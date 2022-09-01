@@ -3,10 +3,12 @@
 % metric used to quantify how often worms are in a certain region
 % of the arena.
 
+% Choose which file you want to load in via graphical interface
+[fileName, filePath] = uigetfile('*.csv');
+fileWithPath = fullfile(fileName, filePath);
+
 % Read in data
-% Change this filePath to load different experiments
-filePath = '../datasets/1D/WT/HEX/20200623_N2_HEX_10000/all_matTrack_data.csv';
-ASSAY = readtable(filePath);
+ASSAY = readtable(fileWithPath);
 
 % Before doing anything with the data, it is typically helpful to
 % see how it is structured. Open the table named ASSAY. What do the
