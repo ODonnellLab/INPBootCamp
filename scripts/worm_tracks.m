@@ -1,10 +1,12 @@
 % This script will plot individual tracks of worms over the course of an
 % assay
-% Read in data
-ASSAY = readtable('../datasets/1D/WT/HEX/202200630_N2_L_HEX_10000/all_matTrack_data.csv');
+% To choose a different file from the one currently loaded, uncomment
+% the next 3 lines to have Matlab give you a GUI to select a file from
+% file
 
 % Plot tracks of each unique worm in a different color:
 worms = unique(ASSAY.("worm"));
+figure
 hold on
 for i = 1:length(worms)
     ...
