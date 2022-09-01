@@ -3,11 +3,12 @@
 % metric used to quantify how often worms are in a certain region
 % of the arena.
 
+% Choose which file you want to load in via graphical interface
+[fileName, filePath] = uigetfile('*.csv');
+fileWithPath = fullfile(fileName, filePath);
+
 % Read in data
-% Change this filePath to load different experiments
-% filePath = '../datasets/1D/WT/HEX_IAA/20210727_N2_HEX_IAA_10000/all_matTrack_data.csv';
-filePath = '../datasets/1D/WT/HEX/20200623_N2_HEX_10000/all_matTrack_data.csv';
-ASSAY = readtable(filePath);
+ASSAY = readtable(fileWithPath);
 
 % Before doing anything with the data, it is typically helpful to
 % see how it is structured. Open the table named ASSAY. What do the
@@ -55,12 +56,14 @@ xlabel('Position');
 % We extract parameters from histogram:
 % Counts are the number of occurrences within a given bin
 counts = h.Values;
-% Find the mean number of counts and use it to normalize for rel_counts
+% Find the mean number of counts. Use this to compute rel_counts
+% (the ratio of counts to mean counts) to tell us whether
+% a certain bin has a higher or lower than average residence
 mean_counts = mean(counts);
 rel_counts = counts/mean_counts;
 
 figure
-% Now use barplot to plot these relative values (hint: check 'bar' function
+% Now use barplot to plot rel_counts (hint: check 'bar' function
 % in Matlab)
 bar(rel_counts);
 
