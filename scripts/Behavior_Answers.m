@@ -96,8 +96,8 @@ worm_tracks;
 % an involved process, so we are providing a script called "luminance.m" 
 % that you can run to do it for you. Before running, it needs to know
 % the min and max values of y for the currently loaded data.
-minY = nanmin(y);
-maxY = nanmax(y);
+minY = min(y);
+maxY = max(y);
 luminance; % Feel free to open this script to see what it does
 
 % This script returns the variables y_lower and y_upper which are the 
@@ -149,7 +149,8 @@ CI = (num_in_odorant - num_outside)/(num_in_odorant + num_outside);
 % Do different mutants exhibit different distributions of states during
 % their locomotion?
 % What other factors may affect CI? Are there any factors that you think
-% should be controlled against to avoid seeing false patterns?
+% should be controlled against to avoid seeing false patterns (hint: does
+% the starting position of the worms have an effect?)?
 
 %% Part 3a - Time Dependence of Chemotaxis Index
 
