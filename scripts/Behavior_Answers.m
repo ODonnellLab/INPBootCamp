@@ -59,6 +59,9 @@ counts = h.Values;
 % Find the mean number of counts. Use this to compute rel_counts
 % (the ratio of counts to mean counts) to tell us whether
 % a certain bin has a higher or lower than average residence
+% Note that rel_counts > 1 means that a bin has worms in it more
+% often than average while rel_counts < 1 means that a bin has
+% worms in it less often than average
 mean_counts = mean(counts);
 rel_counts = counts/mean_counts;
 
