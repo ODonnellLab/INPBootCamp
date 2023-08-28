@@ -78,7 +78,7 @@ xlabel('Position');
 
 %% Part 1b - Look at individual worm trajectories
 
-% It is often helpful to visualize very raw forms of your data, so before
+% It is often helpful to visualize very raw forms of your data, so before we
 % do anything more complicated, let's go ahead and see what our individual
 % worm trajectories look like by running the worm_tracks.m script
 
