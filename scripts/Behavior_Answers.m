@@ -16,7 +16,7 @@ else    % if not on the right path, throw an error
 end
 
 % Choose which file you want to load in via graphical interface
-[fileName, filePath] = uigetfile([behavFolder,'\datasets\Figure_3B\WT\HEX\20210824_N2_L_HEX_10000\'],'*.csv');
+[fileName, filePath] = uigetfile('*.csv','Select a file',[behavFolder,'\datasets\Figure_3B\WT\HEX\20210824_N2_L_HEX_10000\']);
 fileWithPath = fullfile(fileName, filePath);
 
 % Read in data
