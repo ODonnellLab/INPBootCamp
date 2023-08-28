@@ -4,7 +4,7 @@ clear all
 close all
 % Read in data
 framerate = 2; % framerate in Hz
-ASSAY = readtable('../datasets/1D/WT/HEX/202200630_N2_L_HEX_10000/all_matTrack_data.csv');
+ASSAY = readtable('../datasets/Figure_3B/WT/HEX/20210824_N2_L_HEX_10000/all_matTrack_data.csv');
 
 worms = unique(ASSAY.("worm"));
 speed = zeros(max(worms),max(ASSAY.("time")));
