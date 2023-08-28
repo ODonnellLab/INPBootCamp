@@ -3,8 +3,20 @@
 % metric used to quantify how often worms are in a certain region
 % of the arena.
 
+% Before we get started, these next few lines just run a couple of
+% checks to help make sure the rest of the code runs smoothly.
+currFolder = cd;    % grabs current path
+if endsWith(currFolder,'/scripts') % if in the right folder, add all to path
+    cd ..
+    behavFolder = cd;
+    addpath(genpath(behavFolder));
+    cd scripts
+else    % if not on the right path, throw an error
+    error('The current path is not in the scripts subdirectory. Please ask a TA if you need help fixing this :)');
+end
+
 % Choose which file you want to load in via graphical interface
-[fileName, filePath] = uigetfile('*.csv');
+[fileName, filePath] = uigetfile([behavFolder,'/datasets/Figure_1D/WT/HEX/20200623_N2_HEX_10000/'],'*.csv');
 fileWithPath = fullfile(fileName, filePath);
 
 % Read in data
