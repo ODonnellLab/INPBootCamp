@@ -6,7 +6,7 @@
 % Before we get started, these next few lines just run a couple of
 % checks to help make sure the rest of the code runs smoothly.
 currFolder = cd;    % grabs current path
-if endsWith(currFolder,'/scripts') % if in the right folder, add all to path
+if endsWith(currFolder,'scripts') % if in the right folder, add all to path
     cd ..
     behavFolder = cd;
     addpath(genpath(behavFolder));
