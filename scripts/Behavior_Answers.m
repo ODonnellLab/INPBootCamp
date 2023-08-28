@@ -119,7 +119,7 @@ CI = (num_in_odorant - num_outside)/(num_in_odorant + num_outside);
 
 % When trying to quantify behavior (and data in general), it is often
 % useful to consider what you expect a metric to be in extreme cases.
-% For instance, what do you expect CI to be in an experiments where
+% For instance, what do you expect CI to be in an experiment where
 % worms are always in the odor stripe? What do you expect it to be in
 % an experiment with worms never in the stripe? Finally, what do you
 % expect it to be in a control experiment with a stripe with no odor?
