@@ -16,7 +16,11 @@ else    % if not on the right path, throw an error
 end
 
 % Choose which file you want to load in via graphical interface
+<<<<<<< Updated upstream
 [fileName, filePath] = uigetfile('*.csv','Select a file',[strrep(behavFolder,'/','\'),'\datasets\Figure_3B\WT\HEX\20210824_N2_L_HEX_10000\']);
+=======
+[fileName, filePath] = uigetfile('*.csv','Select a file',[strrep(behavFolder,'\','/'),'/datasets/Figure_3B/WT/HEX/20210824_N2_L_HEX_10000/']);
+>>>>>>> Stashed changes
 fileWithPath = fullfile(fileName, filePath);
 
 % Read in data
