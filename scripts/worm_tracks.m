@@ -15,7 +15,7 @@ for i = 1:length(worms)
     ...
     x_plot = ASSAY(ASSAY.("worm") == i,"x");
     y_plot = ASSAY(ASSAY.("worm") == i,"y");
-    % convert to array to plot:
+    % convert array to plot:
     x_plot = table2array(x_plot);
     y_plot = table2array(y_plot);
     plot(x_plot,y_plot)

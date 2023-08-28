@@ -12,12 +12,14 @@ if endsWith(currFolder,'scripts') % if in the right folder, add all to path
     addpath(genpath(behavFolder));
     cd scripts
 else    % if not on the right path, throw an error
-    error('The current path is not in the scripts subdirectory. Please ask a TA if you need help fixing this :)');
+    error(['The current path is not in the scripts subdirectory.',...
+           ' Please ask a TA if you need help fixing this :)']);
 end
 
 % Choose which file you want to load in via graphical interface
-[fileName, filePath] = uigetfile('*.csv','Select a file',[strrep(behavFolder,'\','/'),'/datasets/Figure_3B/WT/HEX/20210824_N2_L_HEX_10000/']);
-fileWithPath = fullfile(fileName, filePath);
+[fileName, filePath] = uigetfile('*.csv','Select a file',...
+    [strrep(behavFolder,'\','/'),'/datasets/Figure_3B/WT/HEX/20210824_N2_L_HEX_10000/']);
+fileWithPath = fullfile(filePath, fileName);
 
 % Read in data
 ASSAY = readtable(fileWithPath);
@@ -33,11 +35,22 @@ ASSAY = readtable(fileWithPath);
 
 % Assign arrays of positions using column indexing. This tells Matlab
 % that we want vector x to be equal to the column labeled "x" in the
-% ASSAY table.
+% ASSAY table. Let's do the same for y, time, and state.
 x = ASSAY.("x");
 y = ASSAY.("y");
 time = ASSAY.("time");
 state = ASSAY.("state");
+
+% Throw error to notify the TA if the data that was imported had an issue
+% This step is only needed because older versions of the data provided by
+% O'Donnell lab had different formatting that resulted in errors.
+if ~isa(x,'double')
+    error(sprintf(['Message for the TAs:\n',...
+           'The data loaded in did not load as a double. The most ', ...
+           'likely reason is because the .csv file loaded in had NA ',...
+           'instead of NaN listed within entries. Please check the ',...
+           'file and replace all NA with NaN via Excel.']));
+end
 
 % Sometimes worms go untracked (resulting in NaN), so let's eliminate
 % anywhere these values happen. The details here aren't that important,
@@ -47,7 +60,7 @@ state = ASSAY.("state");
 y = y(~isnan(y),1); % removes all NaNs from y
 x = x(~isnan(x),1); % removes all NaNs from x
 time = time(~isnan(x),1); % removes all NaNs from time
-states = state(~isnan(x),1); % removes all NaNs from state
+state = state(~isnan(x),1); % removes all NaNs from state
 
 % Make a histogram h of the y values with 50 bins (hint: check 'histogram'
 % function in Matlab)
@@ -193,12 +206,12 @@ title('CI(t)');
 
 % Grab the number of allowed states (can do this by category via state_name
 % if desired)
-numStates = max(states);
+numStates = max(state);
 % Initialize vector that holds how many occurrences of each state takes
 % place in a given experiment (this doesn't distinguish between worms)
 stateCount = zeros(numStates,1);
 
 % Loop through each possible state and count the number of occurrences
 for stateCounter = 1:numStates
-    stateCount(stateCounter) = sum(states == stateCounter);
+    stateCount(stateCounter) = sum(state == stateCounter);
 end

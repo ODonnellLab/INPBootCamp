@@ -23,10 +23,10 @@ for i = 1:length(worms)
    
 end
 
-speedtbl = array2table(reshape(transpose(speed), [], 1), 'VariableNames', {'speed'})
-ASSAY = [ ASSAY, speedtbl ]
+speedtbl = array2table(reshape(transpose(speed), [], 1), 'VariableNames', {'speed'});
+ASSAY = [ ASSAY, speedtbl ];
 
 % now calculate mean speed at each position:
-tblstats = groupsummary(ASSAY,"y",50,"mean","speed")
+tblstats = groupsummary(ASSAY,"y",50,"mean","speed");
 
 bar(tblstats.("disc_y"), tblstats.("mean_speed"))

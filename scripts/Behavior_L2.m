@@ -12,11 +12,13 @@ if endsWith(currFolder,'scripts') % if in the right folder, add all to path
     addpath(genpath(behavFolder));
     cd scripts
 else    % if not on the right path, throw an error
-    error('The current path is not in the scripts subdirectory. Please ask a TA if you need help fixing this :)');
+    error(['The current path is not in the scripts subdirectory.',...
+           ' Please ask a TA if you need help fixing this :)']);
 end
 
 % Choose which file you want to load in via graphical interface
-[fileName, filePath] = uigetfile('*.csv','Select a file',[strrep(behavFolder,'\','/'),'/datasets/Figure_3B/WT/HEX/20210824_N2_L_HEX_10000/']);
+[fileName, filePath] = uigetfile('*.csv','Select a file',...
+    [strrep(behavFolder,'\','/'),'/datasets/Figure_3B/WT/HEX/20210824_N2_L_HEX_10000/']);
 fileWithPath = fullfile(fileName, filePath);
 
 % Read in data
@@ -33,9 +35,22 @@ ASSAY = readtable(fileWithPath);
 
 % Assign arrays of positions using column indexing. This tells Matlab
 % that we want vector x to be equal to the column labeled "x" in the
-% ASSAY table.
+% ASSAY table. Let's do the same for y, time, and state.
 x = ASSAY.("x");
 % y = ?
+% time = ?
+% state = ?
+
+% Throw error to notify the TA if the data that was imported had an issue
+% This step is only needed because older versions of the data provided by
+% O'Donnell lab had different formatting that resulted in errors.
+if ~isa(x,'double')
+    error(sprintf(['Message for the TAs:\n',...
+           'The data loaded in did not load as a double. The most ', ...
+           'likely reason is because the .csv file loaded in had NA ',...
+           'instead of NaN listed within entries. Please check the ',...
+           'file and replace all NA with NaN via Excel.']));
+end
 
 % Sometimes worms go untracked (resulting in NaN), so let's eliminate
 % anywhere these values happen. The details here aren't that important,
@@ -44,6 +59,8 @@ x = ASSAY.("x");
 % encourage you to look up "vectorization in Matlab"
 y = y(~isnan(y),1); % removes all NaNs from y
 x = x(~isnan(x),1); % removes all NaNs from x
+time = time(~isnan(x),1); % removes all NaNs from time
+state = state(~isnan(x),1); % removes all NaNs from state
 
 % Make a histogram h of the y values with 50 bins (hint: check 'histogram'
 % function in Matlab)
