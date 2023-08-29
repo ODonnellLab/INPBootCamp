@@ -37,9 +37,9 @@ ASSAY = readtable(fileWithPath);
 % that we want vector x to be equal to the column labeled "x" in the
 % ASSAY table. Let's do the same for y, time, and state.
 x = ASSAY.("x");
-% y = ?
-% time = ?
-% state = ?
+y = ?
+time = ?
+state = ?
 
 % Throw error to notify the TA if the data that was imported had an issue
 % This step is only needed because older versions of the data provided by
@@ -65,7 +65,7 @@ state = state(~isnan(x),1); % removes all NaNs from state
 % Make a histogram h of the y values with 50 bins (hint: check 'histogram'
 % function in Matlab)
 figure
-% h = histogram(?);
+h = histogram(?);
 
 % Adds an appropriate title to the histogram based on the stimulus of the
 % loaded experiment. If you're interested in learning exactly how this is
@@ -74,7 +74,7 @@ title(['Unnormalized Residence (', ASSAY.("stimulus"){1},')']);
 
 % Add a label to the x axis and call it 'Position' (hint: check 'xlabel'
 % function in Matlab)
-% xlabel(?);
+xlabel(?);
 
 % Now we normalize the histogram to make plot of relative residence:
 % Each tracked frame (non NaN) contributes to the distribution.
@@ -87,19 +87,19 @@ counts = h.Values;
 % Note that rel_counts > 1 means that a bin has worms in it more
 % often than average while rel_counts < 1 means that a bin has
 % worms in it less often than average
-% mean_counts = ?;
-% rel_counts = ?;
+mean_counts = ?;
+rel_counts = ?;
 
 figure
 % Now use barplot to plot rel_counts (hint: check 'bar' function
 % in Matlab)
-% bar(?);
+bar(?);
 
 % Again we add an appropriate title here automatically based on the file
 title(['Relative Residence (', ASSAY.("stimulus"){1},')']);
 
 % Add a label to the x axis and call it 'Position'
-% xlabel(?);
+xlabel(?);
 
 %% Part 1b - Look at individual worm trajectories
 
@@ -135,12 +135,12 @@ luminance; % Feel free to open this script to see what it does
 % determine the number of occurrences (rows) during which worms are within
 % the stripe boundary (hint: use a combination of logical operators
 % including <, >, and &)
-% in_stripe = ?; % hint: y between y_upper & y_lower
-% num_in_odorant = ?; % hint: how many in stripe?
+in_stripe = ?; % hint: y between y_upper & y_lower
+num_in_odorant = ?; % hint: how many in stripe?
 
 % Compute the chemotaxis index (CI = (num in odorant - num outside)/total)
-% num_outside = ?;
-% CI = ?;
+num_outside = ?;
+CI = ?;
 
 % When trying to quantify behavior (and data in general), it is often
 % useful to consider what you expect a metric to be in extreme cases.
