@@ -26,6 +26,9 @@ plot(ax1, fitline, 'Color', 'red');
 plot(ax1, smooth_dye, 'Color', 'magenta');
 hold off
 title(ax1,'');
+xlabel('Y Position (pix)');
+ylabel('Luminance');
+legend('Raw data', 'Fitted data');
 
 % Identify when luminance is below the regression line, indicating dye
 % bounds

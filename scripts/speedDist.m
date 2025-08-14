@@ -4,7 +4,7 @@ clear all
 close all
 % Read in data
 framerate = 2; % framerate in Hz
-ASSAY = readtable('../datasets/1D/WT/HEX/202200630_N2_L_HEX_10000/all_matTrack_data.csv');
+ASSAY = readtable('../datasets/Figure_3B/WT/HEX/20210824_N2_L_HEX_10000/all_matTrack_data.csv');
 
 worms = unique(ASSAY.("worm"));
 speed = zeros(max(worms),max(ASSAY.("time")));
@@ -23,10 +23,10 @@ for i = 1:length(worms)
    
 end
 
-speedtbl = array2table(reshape(transpose(speed), [], 1), 'VariableNames', {'speed'})
-ASSAY = [ ASSAY, speedtbl ]
+speedtbl = array2table(reshape(transpose(speed), [], 1), 'VariableNames', {'speed'});
+ASSAY = [ ASSAY, speedtbl ];
 
 % now calculate mean speed at each position:
-tblstats = groupsummary(ASSAY,"y",50,"mean","speed")
+tblstats = groupsummary(ASSAY,"y",50,"mean","speed");
 
 bar(tblstats.("disc_y"), tblstats.("mean_speed"))

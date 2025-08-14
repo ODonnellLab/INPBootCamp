@@ -4,7 +4,7 @@
 clear all
 close all
 % Read in data
-ASSAY = readtable('../datasets/1D/WT/HEX/202200630_N2_L_HEX_10000/all_matTrack_data.csv');
+ASSAY = readtable('../datasets/Figure_3B/WT/HEX/20210824_N2_L_HEX_10000/all_matTrack_data.csv');
 
 %assign arrays of positions:
 x = ASSAY.("x");
