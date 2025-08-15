@@ -21,7 +21,7 @@ Figure
 ```
 To start, this repository can be either manually downloaded, or using git:
 
-```git clone https://github.com/jshomar/INPBootCamp.git```
+```git clone https://github.com/ODonnellLab/INPBootCamp.git```
 
 The exercises and other useful scripts are available in ./scripts
 
