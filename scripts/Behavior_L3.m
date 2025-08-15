@@ -21,8 +21,10 @@ end
     [strrep(behavFolder,'\','/'),'/datasets/Figure_3B/WT/HEX/20210824_N2_L_HEX_10000/']);
 fileWithPath = fullfile(fileName, filePath);
 
-% Read in data
-ASSAY = readtable(fileWithPath);
+% Read in data. Sometimes we need to help the software handle things
+% like missing data or unexpected values. The latter arguments "TextType"
+% and "TreatAsMissing" are intended to do that. 
+ASSAY = readtable(fileWithPath, "TextType","string","TreatAsMissing",["NA"]);
 
 % Before doing anything with the data, it is typically helpful to
 % see how it is structured. Open the table named ASSAY. What do the
@@ -40,6 +42,7 @@ x = ASSAY.("x");
 y = ?
 time = ?
 state = ?
+state_name = ?
 
 % Throw error to notify the TA if the data that was imported had an issue
 % This step is only needed because older versions of the data provided by
@@ -61,6 +64,8 @@ y = y(~isnan(y),1); % removes all NaNs from y
 x = x(~isnan(x),1); % removes all NaNs from x
 time = time(~isnan(x),1); % removes all NaNs from time
 state = state(~isnan(x),1); % removes all NaNs from state
+state_name = state_name(~isnan(y),1); % removes all NaNs from state_name
+
 
 % Make a histogram h of the y values with 50 bins (hint: check 'histogram'
 % function in Matlab)
@@ -137,6 +142,11 @@ luminance; % Feel free to open this script to see what it does
 % including <, >, and &)
 in_stripe = ?; % hint: y between y_upper & y_lower
 num_in_odorant = ?; % hint: how many in stripe?
+
+% Some of the worms get stuck on the outer walls, we'll censor those from
+% CI analysis. These will be animals within 1mm of the walls.
+on_walls = (y < -14.8 | y > -1.15);
+num_on_walls = sum(on_walls);
 
 % Compute the chemotaxis index (CI = (num in odorant - num outside)/total)
 num_outside = ?;
