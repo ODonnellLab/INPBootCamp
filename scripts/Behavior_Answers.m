@@ -61,9 +61,10 @@ end
 % concise method of choosing only desired entries in vectors, we
 % encourage you to look up "vectorization in Matlab"
 y = y(~isnan(y),1); % removes all NaNs from y
-x = x(~isnan(x),1); % removes all NaNs from x
-time = time(~isnan(x),1); % removes all NaNs from time
-state = state(~isnan(x),1); % removes all NaNs from state
+x = x(~isnan(y),1); % removes all NaNs from x
+time = time(~isnan(y),1); % removes all NaNs from time
+state = state(~isnan(y),1); % removes all NaNs from state
+state_name = state_name(~isnan(y),1); % removes all NaNs from state_name
 
 % Make a histogram h of the y values with 50 bins (hint: check 'histogram'
 % function in Matlab)
@@ -141,8 +142,13 @@ luminance; % Feel free to open this script to see what it does
 in_stripe = (y < y_upper & y > y_lower); % hint: y between y_upper & y_lower
 num_in_odorant = sum(in_stripe); % hint: how many in stripe?
 
+% Some of the worms get stuck on the outer walls, we'll censor those from
+% CI analysis. These will be animals within 1mm of the walls.
+on_walls = (y < -14.8 | y > -1.15);
+num_on_walls = sum(on_walls);
+
 % Compute the chemotaxis index (CI = (num in odorant - num outside)/total)
-num_outside = length(y) - num_in_odorant;
+num_outside = length(y) - num_in_odorant - num_on_walls;
 CI = (num_in_odorant - num_outside)/(num_in_odorant + num_outside);
 
 % When trying to quantify behavior (and data in general), it is often
